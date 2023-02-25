@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Web Code</title>
+</head>
+<body>
+    <div class="scene">
+        <div class="cube">
+          <div class="cube__face cube__face--front" style="background-image: url('images/sa.png');background-size: cover;background-position:center;"></div>
+          <div class="cube__face cube__face--back" style="background-image: url('images/amerika.png');background-size: cover;background-position:center;"></div>
+          <div class="cube__face cube__face--right" style="background-image: url('images/french.png');background-size: cover;background-position:center;"></div>
+          <div class="cube__face cube__face--left" style="background-image: url('images/ispanya.png');background-size: cover;background-position:center;"></div>
+          <div class="cube__face cube__face--top" style="background-image: url('images/italy.png');background-size: cover;background-position:center;"></div>
+          <div class="cube__face cube__face--bottom" style="background-image: url('images/Portuguese.jpeg');background-size: cover; position:absolute; top:0; left:0; bottom:0; right:0; background-color: rgba(0,0,0,0.3);background-position:center;"></div>
+        </div>
+      </div>
+      <p class="radio-group" style="color: white;">
+        <label  >
+          <input type="radio" name="rotate-cube-side" value="front" checked style="margin-bottom: 14px;"/> Arabic
+        </label>
+        <br>
+        <label >
+          <input type="radio" name="rotate-cube-side" value="right" style="margin-bottom: 14px;"/> French
+        </label>
+        <br>
+        <label >
+          <input type="radio" name="rotate-cube-side" value="back" style="margin-bottom: 14px;"/> English
+        </label>
+        <br>
+        <label >
+          <input type="radio" name="rotate-cube-side" value="left" style="margin-bottom: 14px;"/> Spanish
+        </label>
+        <br>
+        <label>
+          <input type="radio" name="rotate-cube-side" value="top" style="margin-bottom: 14px;"/> Italian
+        </label>
+        <br>
+        <label>
+          <input type="radio" name="rotate-cube-side" value="bottom" /> Portuguese
+        </label>
+      </p>
+      
+    
+</body>
+<script>
+    var cube = document.querySelector('.cube');
+var radioGroup = document.querySelector('.radio-group');
+var currentClass = '';
+
+function changeSide() {
+  var checkedRadio = radioGroup.querySelector(':checked');
+  var showClass = 'show-' + checkedRadio.value;
+  if ( currentClass ) {
+    cube.classList.remove( currentClass );
+  }
+  cube.classList.add( showClass );
+  currentClass = showClass;
+}
+// set initial side
+changeSide();
+
+radioGroup.addEventListener( 'change', changeSide );
+</script>
+</html>
